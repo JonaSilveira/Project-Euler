@@ -113,4 +113,68 @@ public class Problems {
         return reverse;
     }
 
+    public static Long smallestNumberDividedBy20FirstNumbers(){
+        Long smallest = 20*20L;
+        List<Integer> smallestNumber = new ArrayList<>();
+        while(true){
+            smallestNumber.clear();
+            smallest++;
+            for(int i=1;i<=20;i++){
+                if(smallest%i==0)
+                    smallestNumber.add(i);
+            }
+            if(smallestNumber.size()>=20)
+                break;
+        }
+        return smallest;
+    }
+
+    public static Long diferenceSquareSumNSumSquare(){
+        Long squareSum = 0L;
+        Long sumSquare = 0L;
+
+        for(int i=1;i<=100;i++){
+            sumSquare +=(i*i);
+            squareSum += i;
+        }
+        return (squareSum*squareSum)-sumSquare;
+    }
+
+    public static Integer stprime10001(){
+        Stack<Integer> numbersPrime = new Stack<>();
+        int i = 1;
+        while(true){
+            boolean isPrime = true;
+            for(int j =2;j<i;j++){
+                if(i%j==0){
+                    isPrime = false;
+                    continue;
+                }
+            }
+            if(isPrime){
+                numbersPrime.add(i);
+                System.out.println(i);
+            }
+            if(numbersPrime.size()>=10002)
+                break;
+            i++;
+        }
+        return numbersPrime.pop();
+    }
+
+    public static Integer tryplePytagoras(){
+        Integer result = 0;
+
+        for(int a = 1; a<1000/3; a++){
+            for(int b = a; b<1000/2;b++){
+                int c = 1000-a-b;
+                if((a*a)+(b*b) == c*c){
+                    return a*b*c;
+                }
+            }
+        }
+
+        return result;
+    }
+
 }
